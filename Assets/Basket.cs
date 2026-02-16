@@ -28,10 +28,17 @@ public class Basket : MonoBehaviour
 
     void OnCollisionEnter(Collision coll){
         GameObject collidedWith = coll.gameObject;
-        if(collidedWith.CompareTag("Apple")){
+       if (collidedWith.CompareTag("Apple"))
+        {
             Destroy(collidedWith);
             scoreCounter.score += 100;
-            HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
+             HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
+         }
+
+         else if (collidedWith.CompareTag("Branch")){
+            Destroy(collidedWith);
+            Camera.main.GetComponent<ApplePicker>().GameOver();
+            
         }
     }
 }

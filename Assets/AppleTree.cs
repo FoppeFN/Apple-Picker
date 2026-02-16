@@ -11,6 +11,8 @@ public class AppleTree : MonoBehaviour
     public float leftAndRightEdge = 10f;
     public float changeDirChance = 0.1f;
     public float appleDropDelay = 1f;
+    public GameObject branchPre;
+    public float branchChance = 0.05f;
     void Start()
     {
         Invoke("DropApple", 2f);
@@ -43,8 +45,16 @@ public class AppleTree : MonoBehaviour
         }
     }
     void DropApple(){
-        GameObject apple = Instantiate<GameObject>(applePrefab);
-        apple.transform.position = transform.position;
-        Invoke("DropApple", appleDropDelay);
+
+    GameObject obj;
+
+    if (branchPre != null && Random.value < branchChance)
+        obj = Instantiate(branchPre);
+    else
+        obj = Instantiate(applePrefab);
+
+    obj.transform.position = transform.position;
+    Invoke("DropApple", appleDropDelay);
+
     }
 }

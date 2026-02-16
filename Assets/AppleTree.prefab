@@ -166,6 +166,8 @@ MonoBehaviour:
   leftAndRightEdge: 24
   changeDirChance: 0.02
   appleDropDelay: 1
+  branchPre: {fileID: 5215855339627761537, guid: 30e862e3c87449a468b8f171fc04c431, type: 3}
+  branchChance: 0.9
 --- !u!1 &5188157930516937453
 GameObject:
   m_ObjectHideFlags: 0
